@@ -45,7 +45,6 @@ public class History {
 		return sdf.format(this.today.getTime());
 	}
 
-
 	public SimpleDateFormat getDateFormat() {
 		return dateFormat;
 	}
