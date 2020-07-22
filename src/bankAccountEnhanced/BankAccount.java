@@ -14,7 +14,6 @@ public class BankAccount {
 	private float limit = 0;
 	final ArrayList<History> history = new ArrayList<>();
 
-
 	public BankAccount(String firstName, String lastName, int number) {
 		setFirstName(firstName);
 		setLastName(lastName);
