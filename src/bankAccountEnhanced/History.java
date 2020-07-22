@@ -40,11 +40,6 @@ public class History {
 		return dateFormat.format(this.today.getTime());
 	}
 
-	public String getUnformattedDate(){
-		SimpleDateFormat sdf = new SimpleDateFormat("kk:mm dd.MM.yyyy");
-		return sdf.format(this.today.getTime());
-	}
-
 	public SimpleDateFormat getDateFormat() {
 		return dateFormat;
 	}

@@ -1,1 +1,1 @@
-James	Dodo	10003	-2000.0	creditCardAccount	14:24 22.07.2020	500.0	true	14:24 22.07.2020	-100.0	true	14:24 22.07.2020	-2400.0	true
+James	Dodo	10003	-2000.0	creditCardAccount	14:45 22.07.2020	500.0	true	14:45 22.07.2020	-100.0	true	14:45 22.07.2020	-2400.0	true

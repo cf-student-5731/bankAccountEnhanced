@@ -88,7 +88,7 @@ public class BankAccount {
 		}
 
 		for (History h : this.history) {
-			stringHistory.append("\t").append(h.getUnformattedDate()).append("\t").append(h.getUnformattedTransaction()).append("\t").append(h.isAccepted());
+			stringHistory.append("\t").append(h.getDate()).append("\t").append(h.getUnformattedTransaction()).append("\t").append(h.isAccepted());
 		}
 
 
