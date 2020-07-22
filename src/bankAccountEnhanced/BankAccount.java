@@ -40,6 +40,7 @@ public class BankAccount {
 	public void addMoney(float amount) {
 		this.balance += amount;
 		history.add(new History(amount, true));
+		System.out.printf("%n%.2f %s %s %s %s%n%n", amount, "added to", this.firstName, this.lastName, "Account.");
 	}
 
 	public void widthDrawMoney(float amount) throws BankAccountNegativeException {
@@ -49,6 +50,7 @@ public class BankAccount {
 		} else {
 			this.balance -= amount;
 			history.add(new History(-amount, true));
+			System.out.printf("%n%.2f %s %s %s %s%n%n", amount, "withdrawn from", this.firstName, this.lastName, "Account.");
 		}
 	}
 
@@ -128,13 +130,10 @@ public class BankAccount {
 		this.balance = (Float.parseFloat(data.get(0)[3]));
 
 		for (int i = 5; i < data.get(0).length; i += 3) {
-			History temp = new History(0, true);
-
 			try {
+				History temp = new History(Float.parseFloat(data.get(0)[i + 1]), (data.get(0)[i+2].equals("true")));
 				Date d = temp.getDateFormat().parse(data.get(0)[i]);
 				temp.today.setTime(d);
-				temp.setTransaction(Float.parseFloat(data.get(0)[i + 1]));
-				temp.setAccepted((data.get(0)[i+2].equals("true")));
 				this.history.add(temp);
 			} catch (ParseException e) {
 				System.out.println(e.getMessage());

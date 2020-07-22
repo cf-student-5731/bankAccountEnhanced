@@ -9,16 +9,14 @@ public class Main {
 	public static void main(String[] args) {
 		BankAccount a = new BankAccount("John", "Doe", 10001);
 		DebitCardAccount d = new DebitCardAccount("Jane", "Doe", 10002);
-		CreditCardAccount c = new CreditCardAccount("Jane", "Doe", 10003);
+		CreditCardAccount c = new CreditCardAccount("James", "Dodo", 10003);
 
 		a.addMoney(500f);
 		a.addMoney(500f);
-
 		widthDrawMoney(a, 400);
 		widthDrawMoney(a, 1200);
 
 		d.addMoney(500f);
-
 		widthDrawMoney(d, 300);
 		widthDrawMoney(d, 1600);
 		widthDrawMoney(d, 200);
@@ -83,13 +81,13 @@ public class Main {
 						temp.readDataFromFile(s);
 						accounts.add(temp);
 					}
-					if (data.get(0)[4].equals("creditCardAccount")) {
-						BankAccount temp = new CreditCardAccount(data.get(0)[0], data.get(0)[1], Integer.parseInt(data.get(0)[2]));
+					if (data.get(0)[4].equals("debitCardAccount")) {
+						BankAccount temp = new DebitCardAccount(data.get(0)[0], data.get(0)[1], Integer.parseInt(data.get(0)[2]));
 						temp.readDataFromFile(s);
 						accounts.add(temp);
 					}
-					if (data.get(0)[4].equals("debitCardAccount")) {
-						BankAccount temp = new DebitCardAccount(data.get(0)[0], data.get(0)[1], Integer.parseInt(data.get(0)[2]));
+					if (data.get(0)[4].equals("creditCardAccount")) {
+						BankAccount temp = new CreditCardAccount(data.get(0)[0], data.get(0)[1], Integer.parseInt(data.get(0)[2]));
 						temp.readDataFromFile(s);
 						accounts.add(temp);
 					}
@@ -99,8 +97,5 @@ public class Main {
 				System.out.println(e.getMessage());
 			}
 		}
-
-
 	}
-
 }
