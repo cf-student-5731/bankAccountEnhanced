@@ -32,14 +32,6 @@ public class History {
 		return this.transaction;
 	}
 
-	public void setTransaction(float transaction) {
-		this.transaction = transaction;
-	}
-
-	public void setAccepted(boolean accepted) {
-		this.accepted = accepted;
-	}
-
 	public boolean isAccepted() {
 		return accepted;
 	}
