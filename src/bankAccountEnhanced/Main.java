@@ -42,11 +42,11 @@ public class Main {
 		}
 
 		BankAccount newA = new BankAccount("Happy", "Coding", 99999);
-		newA.readDataFromFile("account_10001_old.txt");
+		newA.readDataFromFile("./data/account_10001_old.txt");
 		newA.printAccountData();
 
 		ArrayList<BankAccount> autoAccounts = new ArrayList<>();
-		restoreAllAccounts(autoAccounts, new String[]{"account_10001.txt", "account_10002.txt", "account_10003.txt", "account_10001_old.txt"});
+		restoreAllAccounts(autoAccounts, new String[]{"./data/account_10001.txt", "./data/account_10002.txt", "./data/account_10003.txt", "./data/account_10001_old.txt"});
 
 		System.out.printf("%n%n%n");
 		for (BankAccount acc : autoAccounts) {

@@ -93,7 +93,7 @@ public class BankAccount {
 
 
 		try {
-			FileWriter file = new FileWriter("./account_" + filename + ".txt");
+			FileWriter file = new FileWriter("./data/account_" + filename + ".txt");
 			file.write(this.firstName + "\t"
 					+ this.lastName + "\t"
 					+ this.number + "\t"
