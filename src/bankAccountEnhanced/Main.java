@@ -1,9 +1,11 @@
 package bankAccountEnhanced;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Main {
 	public static void main(String[] args) {
@@ -46,7 +48,7 @@ public class Main {
 		newA.printAccountData();
 
 		ArrayList<BankAccount> autoAccounts = new ArrayList<>();
-		restoreAllAccounts(autoAccounts, new String[]{"./data/account_10001.txt", "./data/account_10002.txt", "./data/account_10003.txt", "./data/account_10001_old.txt"});
+		restoreAllAccounts(autoAccounts, "./data");
 
 		System.out.printf("%n%n%n");
 		for (BankAccount acc : autoAccounts) {
@@ -57,6 +59,7 @@ public class Main {
 		autoAccounts.get(0).addMoney(5000);
 		System.out.println("auto account changed:");
 		autoAccounts.get(0).printAccountData();
+
 
 	}
 
@@ -70,11 +73,15 @@ public class Main {
 		}
 	}
 
-	public static void restoreAllAccounts(ArrayList<BankAccount> accounts, String[] filenames) {
+	public static void restoreAllAccounts(ArrayList<BankAccount> accounts, String pathname) {
+		ArrayList<String> filesInFolder;
+		filesInFolder = listFilesForFolder(new File(pathname));
+
 		ArrayList<String[]> data = new ArrayList<>();
-		for (String s : filenames) {
+		for (String s : filesInFolder) {
 
 			try {
+				s = "./data/" + s;
 				BufferedReader file = new BufferedReader(new FileReader(s));
 				String line = file.readLine();
 				while (line != null) {
@@ -101,5 +108,18 @@ public class Main {
 				System.out.println(e.getMessage());
 			}
 		}
+	}
+
+	public static ArrayList<String> listFilesForFolder(final File folder) {
+		ArrayList<String> filesInFolder = new ArrayList<>();
+
+		for (final File fileEntry : Objects.requireNonNull(folder.listFiles())) {
+			if (fileEntry.isDirectory()) {
+				listFilesForFolder(fileEntry);
+			} else {
+				filesInFolder.add((fileEntry.getName()));
+			}
+		}
+		return filesInFolder;
 	}
 }

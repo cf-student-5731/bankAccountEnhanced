@@ -5,9 +5,9 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class History {
-	private float transaction;
+	private final float transaction;
 	final GregorianCalendar today;
-	boolean accepted;
+	final boolean accepted;
 	final SimpleDateFormat dateFormat = new SimpleDateFormat("kk:mm dd.MM.yyyy");
 
 	public History(float transaction, boolean accepted) {
