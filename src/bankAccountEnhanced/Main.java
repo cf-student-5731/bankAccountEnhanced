@@ -54,6 +54,10 @@ public class Main {
 			acc.printAccountData();
 			System.out.printf("%n%n");
 		}
+		autoAccounts.get(0).addMoney(5000);
+		System.out.println("auto account changed:");
+		autoAccounts.get(0).printAccountData();
+
 	}
 
 	public static void widthDrawMoney(BankAccount account, float amount) {
